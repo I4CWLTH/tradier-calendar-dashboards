@@ -2,27 +2,67 @@
 <html>
 
 <head>
-    <title>ORH/ORL Bot Dashboard</title>
+
+    <title>ORH/ORL BOT PERFORMANCE</title>
 
     <link rel="stylesheet" href="/static/style.css">
+
 </head>
 
 <body>
 
-    <div class="container">
+<div class="container">
 
-        <h1>
-            MAY 2026
-            <span>ORH/ORL BOT PERFORMANCE</span>
-        </h1>
+    <h1>
+        MAY 2026
+        <span>ORH/ORL BOT PERFORMANCE</span>
+    </h1>
 
-        <div id="calendar" class="calendar"></div>
+    <div class="weekday-header">
 
-        <div id="summary" class="summary"></div>
+        <div>SUN</div>
+        <div>MON</div>
+        <div>TUE</div>
+        <div>WED</div>
+        <div>THU</div>
+        <div>FRI</div>
+        <div>SAT</div>
 
     </div>
 
-    <script src="/static/app.js"></script>
+    <div id="calendar" class="calendar"></div>
+
+    <div class="legend">
+
+        <div class="legend-item">
+            <div class="legend-box green-box"></div>
+            PROFIT DAY
+        </div>
+
+        <div class="legend-item">
+            <div class="legend-box red-box"></div>
+            LOSS DAY
+        </div>
+
+        <div class="legend-item">
+            <div class="legend-box gray-box"></div>
+            NO TRADE / HOLIDAY
+        </div>
+
+    </div>
+
+    <div id="summary" class="summary"></div>
+
+    <div class="footer">
+
+        MEMORIAL DAY HOLIDAY:
+        U.S. Equity markets and Banks will be closed on Monday, May 25th.
+
+    </div>
+
+</div>
+
+<script src="/static/app.js"></script>
 
 </body>
 
