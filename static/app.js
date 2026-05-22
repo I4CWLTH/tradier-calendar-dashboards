@@ -25,7 +25,7 @@ async function loadCalendar() {
         calendar.appendChild(blank);
     }
 
-    // Build days
+    // Build calendar days
     for (let day = 1; day <= daysInMonth; day++) {
 
         const dateKey =
@@ -37,25 +37,52 @@ async function loadCalendar() {
 
         box.classList.add("day");
 
+        // No trade day
         if (!dayData) {
 
             box.classList.add("gray");
 
-            box.innerHTML = `
-                <div class="date">${day}</div>
-                <div class="trade">No Trade Day</div>
-            `;
+            // Memorial Day special
+            if (day === 25) {
+
+                box.innerHTML = `
+                    <div class="date">${day}</div>
+
+                    <div class="trade">
+                        MEMORIAL DAY
+                    </div>
+
+                    <div class="trade" style="font-size:34px;">
+                        🇺🇸
+                    </div>
+                `;
+
+            } else {
+
+                box.innerHTML = `
+                    <div class="date">${day}</div>
+
+                    <div class="trade">
+                        No Trade Day
+                    </div>
+                `;
+            }
 
         } else {
 
+            // Profit vs loss coloring
             if (dayData.total >= 0) {
+
                 box.classList.add("green");
+
             } else {
+
                 box.classList.add("red");
             }
 
             let tradesHtml = "";
 
+            // Build trade rows
             dayData.trades.forEach(trade => {
 
                 const sign = trade >= 0 ? "+" : "-";
@@ -70,21 +97,43 @@ async function loadCalendar() {
             const totalSign =
                 dayData.total >= 0 ? "+" : "-";
 
-            box.innerHTML = `
-                <div class="date">${day}</div>
+            // Special May 22 labels
+            if (day === 22) {
 
-                ${tradesHtml}
+                box.innerHTML = `
+                    <div class="date">${day}</div>
 
-                <div class="total">
-                    ${totalSign}$${Math.abs(dayData.total).toFixed(2)}
-                </div>
-            `;
+                    <div class="trade">
+                        SPY &nbsp;&nbsp;&nbsp; +$12.00
+                    </div>
+
+                    <div class="trade">
+                        TSLA &nbsp;&nbsp; +$12.00
+                    </div>
+
+                    <div class="total">
+                        ${totalSign}$${Math.abs(dayData.total).toFixed(2)}
+                    </div>
+                `;
+
+            } else {
+
+                box.innerHTML = `
+                    <div class="date">${day}</div>
+
+                    ${tradesHtml}
+
+                    <div class="total">
+                        ${totalSign}$${Math.abs(dayData.total).toFixed(2)}
+                    </div>
+                `;
+            }
         }
 
         calendar.appendChild(box);
     }
 
-    // Summary cards
+    // Summary footer cards
     summary.innerHTML = `
 
     <div class="card">
@@ -95,6 +144,10 @@ async function loadCalendar() {
         <div class="card-value">
             ${data.winning_days}
         </div>
+
+        <div class="card-icon">
+            <i class="fa-solid fa-trophy"></i>
+        </div>
     </div>
 
     <div class="card">
@@ -102,8 +155,12 @@ async function loadCalendar() {
             LOSING DAYS
         </div>
 
-        <div class="card-value">
+        <div class="card-value red-text">
             ${data.losing_days}
+        </div>
+
+        <div class="card-icon red-text">
+            <i class="fa-solid fa-chart-line-down"></i>
         </div>
     </div>
 
@@ -112,8 +169,12 @@ async function loadCalendar() {
             NO TRADE DAYS
         </div>
 
-        <div class="card-value">
+        <div class="card-value gray-text">
             ${data.no_trade_days}
+        </div>
+
+        <div class="card-icon gray-text">
+            <i class="fa-solid fa-calendar-days"></i>
         </div>
     </div>
 
@@ -125,6 +186,10 @@ async function loadCalendar() {
         <div class="card-value">
             +$${data.total_pl.toFixed(2)}
         </div>
+
+        <div class="card-icon">
+            <i class="fa-solid fa-sack-dollar"></i>
+        </div>
     </div>
 
     <div class="card">
@@ -134,6 +199,10 @@ async function loadCalendar() {
 
         <div class="card-value">
             +$24.00
+        </div>
+
+        <div class="card-icon">
+            <i class="fa-solid fa-chart-column"></i>
         </div>
     </div>
 
@@ -145,6 +214,10 @@ async function loadCalendar() {
         <div class="card-value">
             $${data.account_value.toFixed(2)}
         </div>
+
+        <div class="card-icon gray-text">
+            <i class="fa-solid fa-building-columns"></i>
+        </div>
     </div>
 
     <div class="card">
@@ -155,6 +228,10 @@ async function loadCalendar() {
         <div class="card-value">
             $324.64
         </div>
+
+        <div class="card-icon gray-text">
+            <i class="fa-solid fa-wallet"></i>
+        </div>
     </div>
 
     <div class="card">
@@ -164,6 +241,10 @@ async function loadCalendar() {
 
         <div class="card-value">
             +292.00%
+        </div>
+
+        <div class="card-icon">
+            <i class="fa-solid fa-chart-line"></i>
         </div>
     </div>
 
