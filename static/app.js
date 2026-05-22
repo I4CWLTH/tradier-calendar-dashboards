@@ -87,45 +87,86 @@ async function loadCalendar() {
     // Summary cards
     summary.innerHTML = `
 
-        <div class="card">
-    <div class="card-title">WINNING DAYS</div>
-    <div class="card-value">${data.winning_days}</div>
-</div>
+    <div class="card">
+        <div class="card-title">
+            WINNING DAYS
+        </div>
 
-<div class="card">
-    <div class="card-title">LOSING DAYS</div>
-    <div class="card-value">${data.losing_days}</div>
-</div>
+        <div class="card-value">
+            ${data.winning_days}
+        </div>
+    </div>
 
-<div class="card">
-    <div class="card-title">NO TRADE DAYS</div>
-    <div class="card-value">${data.no_trade_days}</div>
-</div>
+    <div class="card">
+        <div class="card-title">
+            LOSING DAYS
+        </div>
 
-<div class="card">
-    <div class="card-title">TOTAL REALIZED P/L</div>
-    <div class="card-value">+$${data.total_pl.toFixed(2)}</div>
-</div>
+        <div class="card-value">
+            ${data.losing_days}
+        </div>
+    </div>
 
-<div class="card">
-    <div class="card-title">TODAY</div>
-    <div class="card-value">+$24.00</div>
-</div>
+    <div class="card">
+        <div class="card-title">
+            NO TRADE DAYS
+        </div>
 
-<div class="card">
-    <div class="card-title">ACCOUNT VALUE</div>
-    <div class="card-value">$${data.account_value.toFixed(2)}</div>
-</div>
+        <div class="card-value">
+            ${data.no_trade_days}
+        </div>
+    </div>
 
-<div class="card">
-    <div class="card-title">AVAILABLE FUNDS</div>
-    <div class="card-value">$324.64</div>
-</div>
+    <div class="card">
+        <div class="card-title">
+            TOTAL REALIZED P/L
+        </div>
 
-<div class="card">
-    <div class="card-title">HISTORICAL GAIN</div>
-    <div class="card-value">+292%</div>
-</div>
+        <div class="card-value">
+            +$${data.total_pl.toFixed(2)}
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-title">
+            TODAY (MAY 22)
+        </div>
+
+        <div class="card-value">
+            +$24.00
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-title">
+            CURRENT ACCOUNT VALUE
+        </div>
+
+        <div class="card-value">
+            $${data.account_value.toFixed(2)}
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-title">
+            AVAILABLE FUNDS
+        </div>
+
+        <div class="card-value">
+            $324.64
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-title">
+            HISTORICAL BALANCE GAIN
+        </div>
+
+        <div class="card-value">
+            +292.00%
+        </div>
+    </div>
+
     `;
 }
 
