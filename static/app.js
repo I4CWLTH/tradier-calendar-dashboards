@@ -16,7 +16,7 @@ async function loadCalendar() {
     const daysInMonth = data.days_in_month;
     const blankDays = data.first_weekday;
 
-    // Blank boxes
+    // Blank starting boxes
     for (let i = 0; i < blankDays; i++) {
 
         const blank = document.createElement("div");
@@ -28,7 +28,7 @@ async function loadCalendar() {
         calendar.appendChild(blank);
     }
 
-    // Build month days
+    // Build days
     for (let day = 1; day <= daysInMonth; day++) {
 
         const dateKey =
@@ -56,7 +56,7 @@ async function loadCalendar() {
             `;
         }
 
-        // NO TRADE
+        // NO TRADE DAY
         else if (!dayData) {
 
             box.classList.add("gray");
@@ -81,20 +81,18 @@ async function loadCalendar() {
 
             let tradesHtml = "";
 
-            // CLEAN ticker + trade amount
-            dayData.symbols.forEach((symbol, index) => {
+            for (let i = 0; i < dayData.symbols.length; i++) {
 
-                // Extract ONLY ticker letters
-                const cleanTicker =
-                    symbol.match(/^[A-Z]+/);
+                const symbol = dayData.symbols[i];
 
-                const ticker =
-                    cleanTicker
-                        ? cleanTicker[0]
-                        : symbol;
+                const tradeAmount = dayData.trades[i];
 
-                const tradeAmount =
-                    dayData.trades[index];
+                // CLEAN ticker extraction
+                const match = symbol.match(/^[A-Z]+/);
+
+                const ticker = match
+                    ? match[0]
+                    : symbol;
 
                 const sign =
                     tradeAmount >= 0 ? "+" : "-";
@@ -106,12 +104,11 @@ async function loadCalendar() {
                         ${sign}$${Math.abs(tradeAmount).toFixed(2)}
                     </div>
                 `;
-            });
+            }
 
             const totalSign =
                 dayData.total >= 0 ? "+" : "-";
 
-            // KEEP DAILY TOTAL AT BOTTOM
             box.innerHTML = `
                 <div class="date">${day}</div>
 
