@@ -24,7 +24,9 @@ h1 {
 
     font-size: 58px;
 
-    margin-bottom: 15px;
+    margin-bottom: 10px;
+
+    font-weight: bold;
 }
 
 h1 span {
@@ -40,13 +42,13 @@ h1 span {
 
     text-align: center;
 
-    margin-bottom: 6px;
+    margin-bottom: 4px;
 
     font-size: 24px;
 
     font-weight: bold;
 
-    color: #cfcfcf;
+    color: #d7d7d7;
 }
 
 .calendar {
@@ -55,14 +57,14 @@ h1 span {
 
     grid-template-columns: repeat(7, 1fr);
 
-    gap: 4px;
+    gap: 3px;
 }
 
 .day {
 
-    min-height: 170px;
+    min-height: 165px;
 
-    border-radius: 4px;
+    border-radius: 3px;
 
     border: 1px solid rgba(255,255,255,0.15);
 
@@ -81,12 +83,12 @@ h1 span {
 
 .gray {
 
-    background: linear-gradient(#6b737d, #42474d);
+    background: linear-gradient(#7a828b, #50555b);
 }
 
 .date {
 
-    font-size: 30px;
+    font-size: 28px;
 
     font-weight: bold;
 }
@@ -95,22 +97,24 @@ h1 span {
 
     text-align: center;
 
-    margin-top: 12px;
+    margin-top: 10px;
 
-    font-size: 20px;
+    font-size: 18px;
+
+    font-weight: bold;
 }
 
 .total {
 
-    margin-top: 14px;
+    margin-top: 12px;
 
-    padding-top: 10px;
+    padding-top: 8px;
 
-    border-top: 1px solid rgba(255,255,255,0.35);
+    border-top: 1px solid rgba(255,255,255,0.3);
 
     text-align: center;
 
-    font-size: 34px;
+    font-size: 28px;
 
     font-weight: bold;
 }
@@ -121,13 +125,13 @@ h1 span {
 
     justify-content: center;
 
-    gap: 60px;
+    gap: 70px;
 
-    margin-top: 18px;
+    margin-top: 14px;
 
-    margin-bottom: 18px;
+    margin-bottom: 14px;
 
-    font-size: 22px;
+    font-size: 20px;
 
     font-weight: bold;
 }
@@ -152,17 +156,17 @@ h1 span {
 
 .green-box {
 
-    background: #1db81d;
+    background: #27d827;
 }
 
 .red-box {
 
-    background: #ff1b1b;
+    background: #ff2424;
 }
 
 .gray-box {
 
-    background: #7d848c;
+    background: #8a9199;
 }
 
 .summary {
@@ -171,47 +175,88 @@ h1 span {
 
     grid-template-columns: repeat(8, 1fr);
 
-    gap: 6px;
+    gap: 2px;
 
     margin-top: 10px;
 }
 
 .card {
 
-    background: #091019;
+    background: #071018;
 
     border: 1px solid rgba(255,255,255,0.15);
 
-    padding: 18px;
+    padding: 12px 8px;
 
     text-align: center;
+
+    min-height: 145px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
 }
 
 .card-title {
 
-    font-size: 18px;
+    font-size: 15px;
 
-    margin-bottom: 12px;
+    line-height: 1.2;
 
-    color: #d8d8d8;
+    color: #dcdcdc;
+
+    min-height: 40px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    font-weight: bold;
 }
 
 .card-value {
 
-    font-size: 42px;
+    font-size: 52px;
 
     font-weight: bold;
 
     color: #5cff2e;
+
+    line-height: 1;
+}
+
+.card-icon {
+
+    margin-top: 6px;
+
+    font-size: 46px;
+
+    color: #5cff2e;
+}
+
+.red-text {
+
+    color: #ff4040 !important;
+}
+
+.gray-text {
+
+    color: #b7bcc2 !important;
 }
 
 .footer {
 
-    margin-top: 12px;
+    margin-top: 8px;
 
     text-align: center;
 
-    color: #cccccc;
+    color: #d0d0d0;
 
-    font-size: 18px;
+    font-size: 16px;
 }
