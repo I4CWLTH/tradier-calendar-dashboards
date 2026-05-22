@@ -11,7 +11,7 @@ async function loadCalendar() {
     const daysInMonth = 31;
 
     // May 1st 2026 starts on Friday
-    const blankDays = 5;
+    const blankDays = 4;
 
     // Blank starting boxes
     for (let i = 0; i < blankDays; i++) {
@@ -88,54 +88,44 @@ async function loadCalendar() {
     summary.innerHTML = `
 
         <div class="card">
-            <div class="card-title">
-                Winning Days
-            </div>
+    <div class="card-title">WINNING DAYS</div>
+    <div class="card-value">${data.winning_days}</div>
+</div>
 
-            <div class="card-value">
-                ${data.winning_days}
-            </div>
-        </div>
+<div class="card">
+    <div class="card-title">LOSING DAYS</div>
+    <div class="card-value">${data.losing_days}</div>
+</div>
 
-        <div class="card">
-            <div class="card-title">
-                Losing Days
-            </div>
+<div class="card">
+    <div class="card-title">NO TRADE DAYS</div>
+    <div class="card-value">${data.no_trade_days}</div>
+</div>
 
-            <div class="card-value">
-                ${data.losing_days}
-            </div>
-        </div>
+<div class="card">
+    <div class="card-title">TOTAL REALIZED P/L</div>
+    <div class="card-value">+$${data.total_pl.toFixed(2)}</div>
+</div>
 
-        <div class="card">
-            <div class="card-title">
-                No Trade Days
-            </div>
+<div class="card">
+    <div class="card-title">TODAY</div>
+    <div class="card-value">+$24.00</div>
+</div>
 
-            <div class="card-value">
-                ${data.no_trade_days}
-            </div>
-        </div>
+<div class="card">
+    <div class="card-title">ACCOUNT VALUE</div>
+    <div class="card-value">$${data.account_value.toFixed(2)}</div>
+</div>
 
-        <div class="card">
-            <div class="card-title">
-                Total P/L
-            </div>
+<div class="card">
+    <div class="card-title">AVAILABLE FUNDS</div>
+    <div class="card-value">$324.64</div>
+</div>
 
-            <div class="card-value">
-                +$${data.total_pl.toFixed(2)}
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-title">
-                Account Value
-            </div>
-
-            <div class="card-value">
-                $${data.account_value.toFixed(2)}
-            </div>
-        </div>
+<div class="card">
+    <div class="card-title">HISTORICAL GAIN</div>
+    <div class="card-value">+292%</div>
+</div>
     `;
 }
 
