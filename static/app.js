@@ -11,7 +11,7 @@ async function loadCalendar() {
     const daysInMonth = 31;
 
     // May 1st 2026 starts on Friday
-    const blankDays = 4;
+    const blankDays = 5;
 
     // Blank starting boxes
     for (let i = 0; i < blankDays; i++) {
