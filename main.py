@@ -58,8 +58,9 @@ def get_calendar():
 
         available_funds = balances["cash"]["cash_available"]
 
-    except:
-        pass
+    except Exception as e:
+
+        print("Balance Error:", e)
 
     daily_data = defaultdict(list)
 
@@ -72,19 +73,23 @@ def get_calendar():
 
         closed_positions = gainloss_json["gainloss"]["closed_position"]
 
+        # Handle Tradier single-object response
         if isinstance(closed_positions, dict):
             closed_positions = [closed_positions]
 
         for trade in closed_positions:
 
-            close_date = trade.get("close_date")
+            close_date = trade.get("close_date", "")
 
-            gain_loss = float(trade.get("gain_loss", 0))
+            # ONLY include May 2026 trades
+            if not close_date.startswith("2026-05"):
+                continue
+
+            gain_loss = float(
+                trade.get("gain_loss", 0)
+            )
 
             symbol = trade.get("symbol", "")
-
-            if not close_date:
-                continue
 
             date_key = close_date.split("T")[0]
 
@@ -109,14 +114,18 @@ def get_calendar():
 
         if total_day_pl > 0:
             winning_days += 1
+
         elif total_day_pl < 0:
             losing_days += 1
 
         days[date_key] = {
+
             "total": round(total_day_pl, 2),
+
             "trades": [
                 trade["pl"] for trade in trades
             ],
+
             "symbols": [
                 trade["symbol"] for trade in trades
             ]
