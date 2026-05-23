@@ -260,3 +260,159 @@ h1 span {
 
     font-size: 16px;
 }
+/* =========================
+   MOBILE RESPONSIVE LAYOUT
+========================= */
+
+@media (max-width: 1200px) {
+
+    .summary {
+
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+
+    h1 {
+
+        font-size: 42px;
+    }
+
+    .weekday-header {
+
+        font-size: 18px;
+    }
+
+    .summary {
+
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card-value {
+
+        font-size: 42px;
+    }
+
+    .card-icon {
+
+        font-size: 38px;
+    }
+
+    .trade {
+
+        font-size: 16px;
+    }
+
+    .total {
+
+        font-size: 24px;
+    }
+
+    .day {
+
+        min-height: 140px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    body {
+
+        padding: 8px;
+    }
+
+    h1 {
+
+        font-size: 28px;
+
+        line-height: 1.2;
+    }
+
+    .weekday-header {
+
+        font-size: 12px;
+    }
+
+    .calendar {
+
+        gap: 2px;
+    }
+
+    .day {
+
+        min-height: 110px;
+
+        padding: 6px;
+    }
+
+    .date {
+
+        font-size: 18px;
+    }
+
+    .trade {
+
+        font-size: 11px;
+
+        margin-top: 6px;
+    }
+
+    .total {
+
+        font-size: 18px;
+
+        margin-top: 6px;
+
+        padding-top: 4px;
+    }
+
+    .legend {
+
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 8px;
+
+        font-size: 14px;
+    }
+
+    .summary {
+
+        grid-template-columns: repeat(1, 1fr);
+
+        gap: 4px;
+    }
+
+    .card {
+
+        min-height: 110px;
+
+        padding: 10px;
+    }
+
+    .card-title {
+
+        font-size: 13px;
+
+        min-height: auto;
+    }
+
+    .card-value {
+
+        font-size: 32px;
+    }
+
+    .card-icon {
+
+        font-size: 28px;
+    }
+
+    .footer {
+
+        font-size: 12px;
+
+        padding-bottom: 20px;
+    }
+}
